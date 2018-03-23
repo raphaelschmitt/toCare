@@ -1,0 +1,470 @@
+package br.com.noctua.tocare;
+
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
+import br.com.noctua.tocare.Objetos.MaskType;
+import br.com.noctua.tocare.Objetos.MaskUtil;
+import br.com.noctua.tocare.Objetos.ValidaCPF;
+
+public class EditarConta extends AppCompatActivity {
+
+    //Internet Connection
+    String url_acesso = "https://tocaredev.azurewebsites.net/api/pessoa/editar";
+    private Map<String, String> params;
+    private ProgressDialog progressDialog;
+    private RequestQueue rq;
+
+    private Toolbar mToolbar;
+
+    Button btSalvar;
+
+    //Spinners Arrays
+    private String[] sexos = new String[]{"Gênero", "Masculino", "Feminino"};
+
+    private Spinner spSexo;
+
+    private String dia = "x", mes = "x", ano = "x", sexo = "x";
+
+    private EditText name;
+    private EditText sobrenome;
+    private EditText cpf, email;
+
+    private TextView tvDataNascimento;
+
+    private DatePickerDialog.OnDateSetListener dateSetListener;
+
+    private int diaU = 0, mesU = 0, anoU = 0;
+
+    private boolean foiSalvo = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_editar_conta);
+
+        //internet
+        rq = Volley.newRequestQueue(EditarConta.this);
+
+        mToolbar = (Toolbar) findViewById(R.id.tb_main);
+        mToolbar.setTitle("Editar Conta");
+        //mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        name = (EditText)findViewById(R.id.et_nome);
+        sobrenome = (EditText)findViewById(R.id.et_sobrenome);
+        cpf = (EditText)findViewById(R.id.et_cpf);
+        cpf.addTextChangedListener(MaskUtil.insert(cpf, MaskType.CPF));
+        email = (EditText)findViewById(R.id.et_email);
+
+        btSalvar = (Button)findViewById(R.id.btSalvar);
+
+        tvDataNascimento = (TextView) findViewById(R.id.tvDataNascimentoSpinner);
+
+        tvDataNascimento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+
+                int ano = calendar.get(Calendar.YEAR);
+                int mes = calendar.get(Calendar.MONTH);
+                int dia = calendar.get(Calendar.DAY_OF_MONTH);
+
+                if(!HomePaciente.paciente.getDataNascimento().isEmpty() && HomePaciente.paciente.getDataNascimento() != null){
+                    dia = Integer.parseInt(""+HomePaciente.paciente.getDataNascimento().charAt(0)+HomePaciente.paciente.getDataNascimento().charAt(1));
+                    mes = Integer.parseInt(""+HomePaciente.paciente.getDataNascimento().charAt(3)+HomePaciente.paciente.getDataNascimento().charAt(4));
+                    --mes;
+                    ano = Integer.parseInt(""+HomePaciente.paciente.getDataNascimento().charAt(6)+HomePaciente.paciente.getDataNascimento().charAt(7)+HomePaciente.paciente.getDataNascimento().charAt(8)+HomePaciente.paciente.getDataNascimento().charAt(9));
+                }
+
+                if(diaU != 0 && mesU != 0 && anoU != 0){
+                    ano = anoU;
+                    dia = diaU;
+                    mes = --mesU;
+                }
+
+                int theme;
+                if (Build.VERSION.SDK_INT < 23) theme = AlertDialog.THEME_HOLO_LIGHT;
+                else theme = android.R.style.Theme_Holo_Dialog;
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(EditarConta.this,
+                        theme,
+                        dateSetListener, ano, mes, dia);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+
+        dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int anoX, int mesX, int diaX) {
+                mesX++;
+
+                diaU = diaX;
+                mesU = mesX;
+                anoU = anoX;
+
+                dia = ""+diaX;
+                if(mesX<10){
+                    mes = "0"+mesX;
+                } else {
+                    mes = ""+mesX;
+                }
+                ano = ""+anoX;
+                String data = dia+"/"+mes+"/"+ano;
+                tvDataNascimento.setText(data);
+            }
+        };
+
+        ArrayAdapter<String> adapterSexo = new ArrayAdapter<String>(this, R.layout.spinner_item, sexos);
+        //opicional
+        adapterSexo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spSexo = (Spinner)findViewById(R.id.spinnerSexo);
+        spSexo.setAdapter(adapterSexo);
+
+        spSexo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                sexo = (String) spSexo.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        btSalvar = (Button) findViewById(R.id.btSalvar);
+        btSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(name.getText().toString().isEmpty()){
+                    AlertDialog.Builder mesg = new AlertDialog.Builder(EditarConta.this);
+                    mesg.setMessage("O nome não pode ser vazio!");
+                    mesg.setTitle("Atenção");
+                    mesg.setNeutralButton("Ok", null);
+                    mesg.setIcon(android.R.drawable.ic_dialog_alert);
+                    mesg.show();
+                    name.setError("O nome não pode ser vazio!");
+                    progressDialog.dismiss();
+                } else if(sobrenome.getText().toString().isEmpty()){
+                    AlertDialog.Builder mesg = new AlertDialog.Builder(EditarConta.this);
+                    mesg.setMessage("O nome não pode ser vazio!");
+                    mesg.setTitle("Atenção");
+                    mesg.setNeutralButton("Ok", null);
+                    mesg.setIcon(android.R.drawable.ic_dialog_alert);
+                    mesg.show();
+                    progressDialog.dismiss();
+                    sobrenome.setError("O sobrenome não pode ser vazio!");
+                } else if(sexo.equals("Gênero")){
+                    AlertDialog.Builder mesg = new AlertDialog.Builder(EditarConta.this);
+                    mesg.setMessage("É necessário escolher um gênero!");
+                    mesg.setTitle("Atenção");
+                    mesg.setNeutralButton("Ok", null);
+                    mesg.setIcon(android.R.drawable.ic_dialog_alert);
+                    mesg.show();
+                    progressDialog.dismiss();
+                } else if(!ValidaCPF.isCPF(cpf.getText().toString()) && !cpf.getText().toString().isEmpty()){
+                    AlertDialog.Builder mesg = new AlertDialog.Builder(EditarConta.this);
+                    mesg.setMessage("Insira um CPF válido!");
+                    mesg.setTitle("Atenção");
+                    mesg.setNeutralButton("Ok", null);
+                    mesg.setIcon(android.R.drawable.ic_dialog_alert);
+                    mesg.show();
+                    cpf.setError("Insira um CPF válido!");
+                    progressDialog.dismiss();
+                } else {
+                    editarDados();
+                }
+            }
+        });
+
+        montarTela();
+
+    }
+
+    public void montarTela(){
+        if(HomePaciente.paciente != null){
+            name.setText(HomePaciente.paciente.getNome());
+            sobrenome.setText(HomePaciente.paciente.getSobrenome());
+            if(HomePaciente.paciente.getGenero().length() > 0 && HomePaciente.paciente.getGenero() != null){
+                spSexo.setSelection(getIndexSpinner(spSexo, HomePaciente.paciente.getGenero()));
+            }
+            tvDataNascimento.setText(HomePaciente.paciente.getDataNascimento());
+            cpf.setText(HomePaciente.paciente.getcpf());
+            email.setText(HomePaciente.paciente.getEmail());
+        }
+    }
+
+    public void editarDados() {
+        progressDialog = new ProgressDialog(EditarConta.this,
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Salvando...");
+        progressDialog.show();
+
+        HomePaciente.paciente.setcpf(cpf.getText().toString());
+        HomePaciente.paciente.setNome(name.getText().toString());
+        HomePaciente.paciente.setSobrenome(sobrenome.getText().toString());
+        HomePaciente.paciente.setDataNascimento(tvDataNascimento.getText().toString());
+        HomePaciente.paciente.setGenero(sexo);
+
+        //@requestFields id_pessoa, st_cpf, st_nome, st_email, st_sobrenome, st_senha, st_genero, st_datanascimento
+        params = new HashMap<String, String>();
+        params.put("id_pessoa", HomePaciente.paciente.getIdPessoa()+"");
+        params.put("st_cpf", ""+MaskUtil.unmask(HomePaciente.paciente.getcpf()));
+        params.put("st_nome", ""+HomePaciente.paciente.getNome());
+        params.put("st_sobrenome", ""+HomePaciente.paciente.getSobrenome());
+        params.put("st_email", ""+HomePaciente.paciente.getEmail());
+        params.put("st_genero", ""+HomePaciente.paciente.getGenero());
+        params.put("st_datanascimento", ""+HomePaciente.paciente.getDataNascimento());
+
+        callByStringRequest(null);
+    }
+
+    public void callByStringRequest(View view){
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_acesso,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        if(response.contains("sucesso")){
+                            new android.os.Handler().postDelayed(
+                                    new Runnable() {
+                                        public void run() {
+                                            // On complete call either onLoginSuccess or onLoginFailed
+                                            AlertDialog.Builder mesg = new AlertDialog.Builder(EditarConta.this);
+                                            mesg.setMessage("Editado com Sucesso!");
+                                            mesg.setTitle("");
+                                            mesg.setCancelable(false);
+                                            mesg.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.cancel();
+                                                    foiSalvo = true;
+                                                }
+                                            });
+                                            //mesg.setIcon(android.R.drawable.ic_dialog_alert);
+                                            mesg.show();
+                                            // onLoginFailed();
+                                            progressDialog.dismiss();
+                                        }
+                                    }, 3000);
+                        } else {
+                            new android.os.Handler().postDelayed(
+                                    new Runnable() {
+                                        public void run() {
+                                            // On complete call either onLoginSuccess or onLoginFailed
+                                            AlertDialog.Builder mesg = new AlertDialog.Builder(EditarConta.this);
+                                            mesg.setMessage("Houve algum erro por favor, tente mais tarde!");
+                                            mesg.setTitle("");
+                                            mesg.setCancelable(false);
+                                            mesg.setNeutralButton("Tentar Novamente", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.cancel();
+                                                    editarDados();
+                                                }
+                                            });
+                                            mesg.setPositiveButton("Cancelar", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.cancel();
+                                                }
+                                            });
+                                            //mesg.setIcon(android.R.drawable.ic_dialog_alert);
+                                            mesg.show();
+                                            // onLoginFailed();
+                                            progressDialog.dismiss();
+                                        }
+                                    }, 1000);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                error.printStackTrace();
+                NetworkResponse response = error.networkResponse;
+
+                JSONObject jsonObject = null;
+
+                try {
+                    jsonObject = new JSONObject(error.getMessage());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                if(jsonObject != null){
+                    AlertDialog.Builder mesg = new AlertDialog.Builder(EditarConta.this);
+                    if(!jsonObject.optString("error").isEmpty()){
+                        mesg.setMessage(jsonObject.optString("error"));
+                    } else if(!jsonObject.optString("mensagem").isEmpty()) {
+                        mesg.setMessage(jsonObject.optString("mensagem") + " Motivo: "+jsonObject.optString("motivo"));
+                    } else {
+                        mesg.setMessage("Houve algum erro! Tente novamente mais tarde!");
+                    }
+                    mesg.setTitle("");
+                    mesg.setCancelable(true);
+                    mesg.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    mesg.show();
+                } else {
+                    AlertDialog.Builder mesg = new AlertDialog.Builder(EditarConta.this);
+                    mesg.setMessage("Houve algum erro, tente novamente mais tarde!");
+                    mesg.setTitle("");
+                    mesg.setCancelable(true);
+                    mesg.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    mesg.show();
+                }
+
+            }
+        }){
+            @Override
+            public Map<String, String> getParams() throws AuthFailureError {
+                return params;
+            }
+
+            //This is for Headers If You Needed
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> header = new HashMap<String, String>();
+                //header.put("Content-Type", "application/json; charset=UTF-8");
+                header.put("Authorization", "Bearer "+LoginPaciente.ACCESS_TOKEN);
+                return header;
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if(volleyError.networkResponse != null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
+            @Override
+            public Priority getPriority(){
+                return (Priority.NORMAL);
+            }
+
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy( 10000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        stringRequest.setTag("tag");
+        rq.add(stringRequest);
+
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+
+        rq.cancelAll("tag");
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(foiSalvo){
+            Intent i = new Intent(getApplicationContext(), HomePaciente.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            finish();
+        } else {
+            finish();
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home){
+            if(foiSalvo){
+                Intent i = new Intent(getApplicationContext(), HomePaciente.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                finish();
+            } else {
+                finish();
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            }
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private int getIndexSpinner(Spinner spinner, String myString){
+        String aux="";
+
+        int index = 0;
+
+        for (int i=0;i<spinner.getCount();i++){
+            aux = spinner.getItemAtPosition(i).toString();
+            if (aux.equals(myString)){
+                index = i;
+            }
+        }
+        return index;
+    }
+
+}

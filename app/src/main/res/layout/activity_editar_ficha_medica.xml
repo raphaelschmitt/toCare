@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.noctua.tocare.EditarFichaMedica">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_main"
+        android:elevation="4dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ToolBarStyle"
+        app:popupTheme="@style/ToolBarStyle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tb_main">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:scrollIndicators="right"
+            android:weightSum="1"
+            tools:context="br.com.easyin.login_singup_databasefromphone.ClassLayouts.SingUp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <Switch
+                    android:id="@+id/swPlanoDeSaude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:text="Plano de Saúde:"
+                    android:textColor="@color/colorAccent"
+                    android:textOff="Plano de Saúde: Não"
+                    android:textOn="Plano de Saúde: Sim"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/swStatusPlanoDeSaude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:text="Não"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/textcolornew"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <Switch
+                    android:id="@+id/swDeficiencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:text="Deficiente Físico:"
+                    android:textColor="@color/colorAccent"
+                    android:textOff="Deficiente Físico: Não"
+                    android:textOn="Deficiente Físico: Sim"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/swStatusDeficiencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:text="Não"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/textcolornew"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="16dp"
+                android:text="Descrição Geral:"
+                android:textColor="@color/colorAccent"
+                android:textSize="16dp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etDescricaoGeral"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/textView2"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Descrição Geral"
+                android:inputType="textMultiLine|textLongMessage"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <TextView
+                android:id="@+id/tvDescricaoDeficiencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Descrição da Deficiência:"
+                android:textColor="@color/colorAccent"
+                android:textSize="16dp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etDescricaoDeficiencia"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/textView2"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Descrição da Deficiência"
+                android:inputType="textMultiLine|textLongMessage"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Tipo Sanguíneo:"
+                android:textColor="@color/colorAccent"
+                android:textSize="16dp"
+                android:textStyle="normal" />
+
+            <Spinner
+                android:id="@+id/spinnerTipoSanguineo"
+                style="@style/mySpinnerItemStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittext_bg"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textcolornew" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Altura (m):"
+                android:textColor="@color/colorAccent"
+                android:textSize="16dp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etAltura"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/textView2"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Altura (m)"
+                android:inputType="numberDecimal"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Peso (kg):"
+                android:textColor="@color/colorAccent"
+                android:textSize="16dp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etPeso"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvEmail"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Peso (kg)"
+                android:inputType="numberDecimal"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <Button
+                android:id="@+id/btSalvar"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_rounded_accent"
+                android:text="Salvar"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

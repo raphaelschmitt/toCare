@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/backgroundnew"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:id="@+id/logo"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:layout_height="140dp"
+            android:layout_marginBottom="10dp" />
+
+        <EditText
+            android:id="@+id/EdnUsername"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tvUsername"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_bg"
+            android:hint="CRO/CRM"
+            android:inputType="number|numberDecimal"
+            android:paddingStart="10dp"
+            android:text=""
+            android:textColor="@color/textcolornew"
+            android:textColorHighlight="@color/accent"
+            android:textColorHint="@color/textcolornew" />
+
+        <EditText
+            android:id="@+id/EdnPassword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_bg"
+            android:hint="Senha"
+            android:inputType="textNoSuggestions|textPassword"
+            android:paddingStart="10dp"
+            android:password="true"
+            android:text=""
+            android:textColor="@color/textcolornew"
+            android:textColorHighlight="@color/accent"
+            android:textColorHint="@color/textcolornew" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btVoltar"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/btSignUp"
+                android:layout_alignBottom="@+id/btSignUp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_rounded_dark"
+                android:onClick="OnClicklogin"
+                android:text="voltar"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/btSignUp"
+                android:layout_alignBottom="@+id/btSignUp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_rounded_dark"
+                android:onClick="OnClicklogin"
+                android:text="login"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <!--Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastre-se"
+            android:id="@+id/btSignUp"
+            android:onClick="OnClicklogin"
+            android:background="@color/botoes"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp" /-->
+
+        <TextView
+            android:id="@+id/esqueceuSenha"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Esqueceu sua senha? Clique aqui"
+            android:textColor="@color/colorLink"
+            android:textColorLink="@color/colorLink"
+            android:textSize="16dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="toCare © 2018"
+            android:id="@+id/textView9"
+            android:layout_gravity="bottom|center_horizontal"
+            android:textSize="15dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/textcolornew"/>
+
+    </LinearLayout>
+</ScrollView>

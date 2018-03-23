@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/backgroundnew"
+    android:layout_height="match_parent"
+    tools:context="br.com.noctua.tocare.CadastroMedico">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_main"
+        android:elevation="4dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ToolBarStyle"
+        app:popupTheme="@style/ToolBarStyle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tb_main">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            tools:context="br.com.easyin.login_singup_databasefromphone.ClassLayouts.SingUp"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:scrollIndicators="right">
+
+            <EditText
+                android:id="@+id/tfName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/textView2"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Nome"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <EditText
+                android:id="@+id/tfSobrenome"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Sobrenome"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <EditText
+                android:id="@+id/etPaisOrigem"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="País de Origem"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <EditText
+                android:id="@+id/tfCRM_CRO"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="CRO/CRM"
+                android:inputType="numberDecimal"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <EditText
+                android:id="@+id/tfEmail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvEmail"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <EditText
+                android:id="@+id/tfEmailConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tvEmail"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Confirme seu E-mail"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <Spinner
+                android:id="@+id/spinnerSexo"
+                style="@style/mySpinnerItemStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textcolornew" />
+
+            <EditText
+                android:id="@+id/tfPassword"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tvPassword"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <EditText
+                android:id="@+id/tfConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/textView3"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="Confirme a Senha"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:textColor="@color/textcolornew"
+                android:textColorHighlight="@color/TextSelected"
+                android:textColorHint="@color/textcolornew" />
+
+            <TextView
+                android:id="@+id/tvDataNascimentoSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="Data de Nascimento"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/textcolornew"
+                android:textSize="18sp" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context="br.com.easyin.login_singup_databasefromphone.ClassLayouts.SingUp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:weightSum="1"
+                android:scrollIndicators="right"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <CheckBox
+                    android:id="@+id/checkBoxTermosdeUso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/textcolornew" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Li e Aceito os "
+                    android:textColor="@color/textcolornew"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:paddingTop="12dp"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Termos de Uso e Serviço"
+                    android:id="@+id/linkTermosDeUso"
+                    android:textColor="@color/colorLink"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:paddingTop="12dp"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context="br.com.easyin.login_singup_databasefromphone.ClassLayouts.SingUp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:weightSum="1"
+                android:scrollIndicators="right"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/checkBoxPoliticaDePrivacidade"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/textcolornew" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Li e Aceito a "
+                    android:textColor="@color/textcolornew"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:paddingTop="12dp"
+                    android:paddingLeft="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Política de Privacidade"
+                    android:id="@+id/linkPoliticaDePrivacidade"
+                    android:textColor="@color/colorLink"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:paddingTop="12dp"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btRegister"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/button_rounded_dark"
+                android:onClick="OnClickCadastroMedico"
+                android:text="Registrar"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

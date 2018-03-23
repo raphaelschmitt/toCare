@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#4e6366</color>
+  <color name="colorPrimaryDark">#3d4e51</color>
+  <color name="colorAccent">#67ce89</color>
+
+  <color name="primary">#4e6366</color>
+  <color name="primary_dark">#3d4e51</color>
+  <color name="primary_darker">#303d40</color>
+  <color name="accent">#67ce89</color>
+
+  <color name="black">#000000</color>
+  <color name="jet">#222222</color>
+  <color name="oil">#333333</color>
+  <color name="monsoon">#0cdbdbdd</color>
+  <color name="jumbo">#888888</color>
+  <color name="aluminum">#999999</color>
+  <color name="base">#aaaaaa</color>
+  <color name="iron">#cccccc</color>
+  <color name="white">#ffffff</color>
+  <color name="background">#ffffff</color>
+
+  <color name="magro">#2ca1e1</color>
+  <color name="saudavel">#46de24</color>
+  <color name="gordo">#dae725</color>
+  <color name="obesidade">#e68b23</color>
+  <color name="obesidadeMorbida">#e12727</color>
+
+  <color name="colorLink">#1ea4f7</color>
+
+  <color name="botoes">#4e6366</color>
+
+  <color name="textcolornew">#575a5d</color>
+
+  <color name="TextSelected">#4e6366</color>
+
+  <color name="my_spinner_text_color">#000000</color>
+  <color name="accentPressed">#56ac73</color>
+</resources>
