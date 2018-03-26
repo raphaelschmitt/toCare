@@ -28,7 +28,7 @@
             android:layout_below="@+id/tvUsername"
             android:layout_margin="10dp"
             android:background="@drawable/edittext_bg"
-            android:hint="E-mail"
+            android:hint="@string/email"
             android:inputType="textEmailAddress|textAutoComplete"
             android:paddingStart="10dp"
             android:text=""
@@ -42,7 +42,7 @@
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:background="@drawable/edittext_bg"
-            android:hint="Senha"
+            android:hint="@string/senha"
             android:inputType="textNoSuggestions|textPassword"
             android:paddingStart="10dp"
             android:password="true"
@@ -70,7 +70,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/button_rounded_dark"
                 android:onClick="OnClicklogin"
-                android:text="voltar"
+                android:text="@string/voltar"
                 android:textColor="@color/white" />
 
             <Button
@@ -86,7 +86,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/button_rounded_dark"
                 android:onClick="OnClicklogin"
-                android:text="login"
+                android:text="@string/login"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -109,7 +109,7 @@
             android:layout_marginBottom="24sp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="Esqueceu sua senha? Clique aqui"
+            android:text="@string/esqueceu_senha"
             android:textColor="@color/colorLink"
             android:textColorLink="@color/colorLink"
             android:textSize="16dip" />
