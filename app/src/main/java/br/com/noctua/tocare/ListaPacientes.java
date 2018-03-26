@@ -72,7 +72,7 @@ public class ListaPacientes extends AppCompatActivity implements AbsListView.OnS
         paginacao.setNextPage(false);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Meus Pacientes");
+        mToolbar.setTitle(R.string.meus_pacientes);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_forward_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);

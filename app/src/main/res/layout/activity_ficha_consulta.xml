@@ -61,7 +61,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="10dp"
-                        android:text="Raphael Schmitt de Oliveira Santos"
+                        android:text="@string/carregando"
                         android:textColor="@color/textcolornew"
                         android:textSize="16sp"
                         android:textStyle="normal|bold" />
@@ -74,7 +74,7 @@
                         android:layout_gravity="left"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:text="24/06/1995 (22)"
+                        android:text="@string/carregando"
                         android:textColor="@color/textcolornew"
                         android:textSize="14sp"
                         android:textStyle="normal" />
@@ -103,7 +103,7 @@
                         android:layout_gravity="left"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:text="Anamnese:"
+                        android:text="@string/anamnese"
                         android:textColor="@color/colorAccent"
                         android:textSize="16dp"
                         android:textStyle="normal" />
@@ -136,7 +136,7 @@
                         android:layout_gravity="left"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:text="Exame Físico:"
+                        android:text="@string/exame_fisico"
                         android:textColor="@color/colorAccent"
                         android:textSize="16dp"
                         android:textStyle="normal" />
@@ -169,7 +169,7 @@
                         android:layout_gravity="left"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:text="Hipótese Diagnóstica:"
+                        android:text="@string/hipotese_diagnostica"
                         android:textColor="@color/colorAccent"
                         android:textSize="16dp"
                         android:textStyle="normal" />
@@ -202,7 +202,7 @@
                         android:layout_gravity="left"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:text="Plano Terapêutico:"
+                        android:text="@string/plano_terapeutico"
                         android:textColor="@color/colorAccent"
                         android:textSize="16dp"
                         android:textStyle="normal" />
@@ -229,7 +229,7 @@
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/button_rounded_accent"
-                        android:text="Editar"
+                        android:text="@string/editar"
                         android:textColor="@color/white" />
 
 

@@ -37,7 +37,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Nome"
+                android:text="@string/nome"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -62,7 +62,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Sobrenome"
+                android:text="@string/sobrenome"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -87,7 +87,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Gênero:"
+                android:text="@string/genero"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -120,7 +120,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Data Nascimento:"
+                android:text="@string/data_nascimento"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -156,7 +156,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="C.P.F.:"
+                android:text="@string/cpf"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -182,7 +182,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="E-mail:"
+                android:text="@string/email"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -210,7 +210,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/button_rounded_accent"
-                android:text="Salvar"
+                android:text="@string/salvar"
                 android:textColor="@color/white" />
 
 

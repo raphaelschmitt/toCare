@@ -82,7 +82,7 @@ public class EditarContaMedico extends AppCompatActivity {
         rq = Volley.newRequestQueue(EditarContaMedico.this);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Editar Conta");
+        mToolbar.setTitle(R.string.editar_conta);
         //mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -104,11 +104,11 @@ public class ListaMedicos extends AppCompatActivity implements AbsListView.OnScr
                 final Medico medicoAux = listMedicos.get(position);
 
                 AlertDialog.Builder mesg = new AlertDialog.Builder(ListaMedicos.this);
-                mesg.setMessage("Deseja Dr./Dra. " + medicoAux.getNome() + " remover de seus Médicos? (Ao fazer isso o médico em questão não terá mais acesso a" +
-                        "sua ficha médica e não poderá editar seu prontuário.)");
+                mesg.setMessage("Do you want to remove Dr. " + medicoAux.getNome() + " from your Doctors? (By doing this the doctor in question will no longer have access to "+
+                        "your medical record and you will not be able to edit your medical record.)");
                 mesg.setTitle("");
                 mesg.setCancelable(true);
-                mesg.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                mesg.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
@@ -116,12 +116,12 @@ public class ListaMedicos extends AppCompatActivity implements AbsListView.OnScr
                                 R.style.AppTheme_Dark_Dialog);
                         progressDialog.setIndeterminate(true);
                         progressDialog.setCancelable(false);
-                        progressDialog.setMessage("Removendo...");
+                        progressDialog.setMessage("Removing...");
                         progressDialog.show();
                         removerMedicos(medicoAux.getIdPacienteMedico());
                     }
                 });
-                mesg.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                mesg.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();

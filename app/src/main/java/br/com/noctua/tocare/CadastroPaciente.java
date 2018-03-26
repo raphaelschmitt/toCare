@@ -97,7 +97,7 @@ public class CadastroPaciente extends AppCompatActivity {
         rq = Volley.newRequestQueue(CadastroPaciente.this);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Cadastro Paciente");
+        mToolbar.setTitle(R.string.cadastro_paciente);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_forward_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -250,7 +250,7 @@ public class CadastroPaciente extends AppCompatActivity {
     public void OnClickCadastroPaciente(View v){
         if(v.getId() == R.id.btRegister){
 
-            if(checkBoxPoliticasDePrivacidade.isChecked() && checkBoxTermosDeUso.isChecked()){
+            //if(checkBoxPoliticasDePrivacidade.isChecked() && checkBoxTermosDeUso.isChecked()){
                 Random gerador = new Random();
 
                 String nameStr = name.getText().toString() + " " + sobrenome.getText();
@@ -334,14 +334,14 @@ public class CadastroPaciente extends AppCompatActivity {
 
                     callByStringRequest(null);
                 }
-            } else {
+            /*} else {
                 AlertDialog.Builder mesg = new AlertDialog.Builder(CadastroPaciente.this);
                 mesg.setMessage("É necessário aceitar os \"Termos de Uso e Serviço\" e a \"Política de Privacidade\" para se cadastrar!");
                 mesg.setTitle("Atenção");
                 mesg.setNeutralButton("Ok", null);
                 mesg.setIcon(android.R.drawable.ic_dialog_alert);
                 mesg.show();
-            }
+            }*/
         }
     }
 

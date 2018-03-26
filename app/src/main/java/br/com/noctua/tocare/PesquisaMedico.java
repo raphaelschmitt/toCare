@@ -115,11 +115,11 @@ public class PesquisaMedico extends AppCompatActivity implements AbsListView.OnS
                 final Medico medicoAux = listMedicos.get(position);
 
                 AlertDialog.Builder mesg = new AlertDialog.Builder(PesquisaMedico.this);
-                mesg.setMessage("Deseja adicionar o Dr./Dra. " + medicoAux.getNome() + " como um/uma de seus Médicos? (Ao fazer isso o médico em questão terá acesso a" +
-                        " sua ficha médica e poderá editar seu prontuário.)");
+                mesg.setMessage("Do you want to add Dr. " + medicoAux.getNome() + "as one of your Doctors? (By doing so the doctor in question will have access to" +
+                        " your medical record and you can edit your medical record.)");
                 mesg.setTitle("");
                 mesg.setCancelable(true);
-                mesg.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                mesg.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
@@ -127,12 +127,12 @@ public class PesquisaMedico extends AppCompatActivity implements AbsListView.OnS
                                 R.style.AppTheme_Dark_Dialog);
                         progressDialog.setIndeterminate(true);
                         progressDialog.setCancelable(false);
-                        progressDialog.setMessage("Adicionando...");
+                        progressDialog.setMessage("Adding...");
                         progressDialog.show();
                         adicionarMedicos(HomePaciente.paciente.getIdPaciente(), medicoAux.getIdMedico());
                     }
                 });
-                mesg.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                mesg.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();

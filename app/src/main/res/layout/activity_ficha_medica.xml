@@ -52,7 +52,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="10dp"
-                android:text="Raphael Schmitt de Oliveira Santos"
+                android:text="@string/carregando"
                 android:textColor="@color/textcolornew"
                 android:textSize="16sp"
                 android:textStyle="normal|bold" />
@@ -65,7 +65,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="24/06/1995 (22)"
+                android:text="@string/carregando"
                 android:textColor="@color/textcolornew"
                 android:textSize="14sp"
                 android:textStyle="normal" />
@@ -94,7 +94,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Plano de Saúde"
+                android:text="@string/plano_de_saude"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -127,7 +127,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Deficiência Física"
+                android:text="@string/deficiencia_fisica"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -161,7 +161,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Descrição da Deficiência Física"
+                android:text="@string/deficiencia_fisica_descricao"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -195,7 +195,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Descrição Geral"
+                android:text="@string/descricao_geral"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -228,7 +228,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Tipo Sanguíneo"
+                android:text="@string/tipo_sanguineo"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -261,7 +261,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Altura (m)"
+                android:text="@string/altura"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -294,7 +294,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Peso (Kg)"
+                android:text="@string/peso"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -327,7 +327,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Índice de Massa Corporal (IMC)"
+                android:text="@string/indice_de_massa_corporal"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -372,7 +372,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/button_rounded_accent"
-                android:text="Editar"
+                android:text="@string/editar"
                 android:textColor="@color/white" />
 
 

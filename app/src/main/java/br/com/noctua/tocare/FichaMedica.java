@@ -45,7 +45,7 @@ public class FichaMedica extends AppCompatActivity {
         setContentView(R.layout.activity_ficha_medica);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Ficha Médica");
+        mToolbar.setTitle(R.string.ficha_medica);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_forward_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);

@@ -71,7 +71,7 @@ public class FichaConsulta extends AppCompatActivity {
         setContentView(R.layout.activity_ficha_consulta);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Ficha de Consulta");
+        mToolbar.setTitle(R.string.ficha_de_consulta);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

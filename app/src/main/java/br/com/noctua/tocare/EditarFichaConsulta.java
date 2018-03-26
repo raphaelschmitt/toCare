@@ -63,7 +63,7 @@ public class EditarFichaConsulta extends AppCompatActivity {
         rq = Volley.newRequestQueue(EditarFichaConsulta.this);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Editar Ficha de Consulta");
+        mToolbar.setTitle(R.string.editar_ficha_consulta);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

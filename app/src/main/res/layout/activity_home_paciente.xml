@@ -59,25 +59,15 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="10dp"
-                    android:text="Carregando..."
+                    android:text="@string/carregando"
                     android:textAlignment="center"
                     android:textColor="@color/textcolornew"
                     android:textSize="27sp"
                     android:textStyle="normal" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_below="@+id/Fotos"
-                    android:id="@+id/Apelido"
-                    android:gravity="center"
-                    android:layout_marginBottom="10dp">
-
-                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -121,7 +111,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="center"
                         android:onClick="onClickHomePaciente"
-                        android:text="Ficha Médica"
+                        android:text="@string/ficha_medica"
                         android:textAlignment="center"
                         android:textColor="@color/TextSelected"
                         android:textSize="17dp"
@@ -155,7 +145,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="center"
                         android:onClick="onClickHomePaciente"
-                        android:text="Ficha de Consulta"
+                        android:text="@string/ficha_de_consulta"
                         android:textAlignment="center"
                         android:textColor="@color/TextSelected"
                         android:textSize="17dp"
@@ -199,7 +189,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="center"
                         android:onClick="onClickHomePaciente"
-                        android:text="Médicos"
+                        android:text="@string/medicos"
                         android:textAlignment="center"
                         android:textColor="@color/TextSelected"
                         android:textSize="17dp"
@@ -234,7 +224,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="center"
                         android:onClick="onClickHomePaciente"
-                        android:text="Editar Conta"
+                        android:text="@string/editar_conta"
                         android:textAlignment="center"
                         android:textColor="@color/TextSelected"
                         android:textSize="17dp"

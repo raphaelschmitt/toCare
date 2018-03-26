@@ -41,7 +41,7 @@
                 android:layout_below="@+id/textView2"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Nome"
+                android:hint="@string/nome"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -56,7 +56,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Sobrenome"
+                android:hint="@string/sobrenome"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -71,7 +71,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="País de Origem"
+                android:hint="@string/pais_de_origem"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -86,7 +86,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="CRO/CRM"
+                android:hint="@string/cadastro_medico"
                 android:inputType="numberDecimal"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -102,7 +102,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="E-mail"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -117,7 +117,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Confirme seu E-mail"
+                android:hint="@string/comfirme_email"
                 android:inputType="textEmailAddress"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -143,7 +143,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Senha"
+                android:hint="@string/senha"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -158,7 +158,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Confirme a Senha"
+                android:hint="@string/confirme_senha"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -175,7 +175,7 @@
                 android:background="@drawable/edittext_bg"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
-                android:text="Data de Nascimento"
+                android:text="@string/data_nascimento"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/textcolornew"
                 android:textSize="18sp" />
@@ -184,13 +184,14 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context="br.com.easyin.login_singup_databasefromphone.ClassLayouts.SingUp"
-                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:weightSum="1"
-                android:scrollIndicators="right"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingRight="16dp"
+                android:scrollIndicators="right"
+                android:visibility="gone"
+                android:weightSum="1"
+                tools:context="br.com.easyin.login_singup_databasefromphone.ClassLayouts.SingUp">
 
                 <CheckBox
                     android:id="@+id/checkBoxTermosdeUso"
@@ -202,25 +203,25 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Li e Aceito os "
-                    android:textColor="@color/textcolornew"
                     android:layout_gravity="center_horizontal"
-                    android:textAlignment="center"
-                    android:paddingTop="12dp"
                     android:paddingLeft="10dp"
+                    android:paddingTop="12dp"
+                    android:text="Li e Aceito os "
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/textcolornew"
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/linkTermosDeUso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Termos de Uso e Serviço"
-                    android:id="@+id/linkTermosDeUso"
-                    android:textColor="@color/colorLink"
                     android:layout_gravity="center_horizontal"
-                    android:textAlignment="center"
                     android:paddingTop="12dp"
+                    android:text="Termos de Uso e Serviço"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/colorLink"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -229,43 +230,44 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context="br.com.easyin.login_singup_databasefromphone.ClassLayouts.SingUp"
-                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:weightSum="1"
-                android:scrollIndicators="right"
+                android:orientation="horizontal"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingRight="16dp"
+                android:scrollIndicators="right"
+                android:visibility="gone"
+                android:weightSum="1"
+                tools:context="br.com.easyin.login_singup_databasefromphone.ClassLayouts.SingUp">
 
                 <CheckBox
+                    android:id="@+id/checkBoxPoliticaDePrivacidade"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:id="@+id/checkBoxPoliticaDePrivacidade"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/textcolornew" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Li e Aceito a "
-                    android:textColor="@color/textcolornew"
                     android:layout_gravity="center_horizontal"
-                    android:textAlignment="center"
-                    android:paddingTop="12dp"
                     android:paddingLeft="10dp"
+                    android:paddingTop="12dp"
+                    android:text="Li e Aceito a "
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/textcolornew"
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/linkPoliticaDePrivacidade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Política de Privacidade"
-                    android:id="@+id/linkPoliticaDePrivacidade"
-                    android:textColor="@color/colorLink"
                     android:layout_gravity="center_horizontal"
-                    android:textAlignment="center"
                     android:paddingTop="12dp"
+                    android:text="Política de Privacidade"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/colorLink"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -278,7 +280,7 @@
                 android:layout_marginTop="35dp"
                 android:background="@drawable/button_rounded_dark"
                 android:onClick="OnClickCadastroMedico"
-                android:text="Registrar"
+                android:text="@string/cadastrese"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>

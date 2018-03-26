@@ -65,7 +65,7 @@ public class EditarFichaMedica extends AppCompatActivity {
         rq = Volley.newRequestQueue(EditarFichaMedica.this);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Editar Ficha Médica");
+        mToolbar.setTitle(R.string.editar_ficha_medica);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_forward_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);

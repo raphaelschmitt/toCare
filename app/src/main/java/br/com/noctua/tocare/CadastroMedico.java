@@ -95,7 +95,7 @@ public class CadastroMedico extends AppCompatActivity {
         rq = Volley.newRequestQueue(CadastroMedico.this);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Cadastro Médico");
+        mToolbar.setTitle(R.string.cadastro_medico);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_forward_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -248,7 +248,7 @@ public class CadastroMedico extends AppCompatActivity {
     public void OnClickCadastroMedico(View v){
         if(v.getId() == R.id.btRegister){
 
-            if(checkBoxPoliticasDePrivacidade.isChecked() && checkBoxTermosDeUso.isChecked()){
+            //if(checkBoxPoliticasDePrivacidade.isChecked() && checkBoxTermosDeUso.isChecked()){
                 Random gerador = new Random();
 
                 String nameStr = name.getText().toString() + " " + sobrenome.getText();
@@ -338,14 +338,14 @@ public class CadastroMedico extends AppCompatActivity {
 
                     callByStringRequest(null);
                 }
-            } else {
+            /*} else {
                 AlertDialog.Builder mesg = new AlertDialog.Builder(CadastroMedico.this);
                 mesg.setMessage("É necessário aceitar os \"Termos de Uso e Serviço\" e a \"Política de Privacidade\" para se cadastrar!");
                 mesg.setTitle("Atenção");
                 mesg.setNeutralButton("Ok", null);
                 mesg.setIcon(android.R.drawable.ic_dialog_alert);
                 mesg.show();
-            }
+            }*/
         }
     }
 

@@ -52,7 +52,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="10dp"
-                android:text="Carregando..."
+                android:text="@string/carregando"
                 android:textColor="@color/textcolornew"
                 android:textSize="16sp"
                 android:textStyle="normal|bold" />
@@ -65,7 +65,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Carregando..."
+                android:text="@string/carregando"
                 android:textColor="@color/textcolornew"
                 android:textSize="14sp"
                 android:textStyle="normal" />
@@ -99,7 +99,7 @@
                 android:layout_gravity="left"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="16dp"
-                android:text="Anamnese:"
+                android:text="@string/anamnese"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -111,7 +111,7 @@
                 android:layout_below="@+id/textView2"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Aqui vai ficar o texto resposável pela Anamnese."
+                android:hint="@string/anamnese"
                 android:inputType="textMultiLine|textLongMessage"
                 android:paddingStart="10dp"
                 android:textAlignment="textStart"
@@ -127,7 +127,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="10dp"
-                android:text="Exame Físico:"
+                android:text="@string/exame_fisico"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -139,7 +139,7 @@
                 android:layout_below="@+id/textView2"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Aqui vai ficar o texto resposável pelo Exame Físico."
+                android:hint="@string/exame_fisico"
                 android:inputType="textMultiLine|textLongMessage"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -154,7 +154,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="10dp"
-                android:text="Hipótese Diagnóstica:"
+                android:text="@string/hipotese_diagnostica"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -166,7 +166,7 @@
                 android:layout_below="@+id/textView2"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Aqui vai ficar o texto resposável pela Hipótese Diagnóstica."
+                android:hint="@string/hipotese_diagnostica"
                 android:inputType="textMultiLine|textLongMessage"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -181,7 +181,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="10dp"
-                android:text="Plano Terapêutico:"
+                android:text="@string/plano_terapeutico"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -193,7 +193,7 @@
                 android:layout_below="@+id/textView2"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Aqui vai ficar o texto resposável pelo Plano Terapêutico."
+                android:hint="@string/plano_terapeutico"
                 android:inputType="textMultiLine|textLongMessage"
                 android:paddingStart="10dp"
                 android:textColor="@color/textcolornew"
@@ -207,7 +207,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/button_rounded_accent"
-                android:text="Salvar"
+                android:text="@string/salvar"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
