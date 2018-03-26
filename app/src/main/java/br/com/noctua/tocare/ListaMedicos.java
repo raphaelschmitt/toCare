@@ -72,7 +72,7 @@ public class ListaMedicos extends AppCompatActivity implements AbsListView.OnScr
         paginacao.setNextPage(false);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Meus Médicos");
+        mToolbar.setTitle(R.string.meus_medicos);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_forward_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);

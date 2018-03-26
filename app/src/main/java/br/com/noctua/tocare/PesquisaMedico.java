@@ -73,7 +73,7 @@ public class PesquisaMedico extends AppCompatActivity implements AbsListView.OnS
         setContentView(R.layout.activity_pesquisa_medico);
 
         mToolbar = (Toolbar) findViewById(R.id.tb_main);
-        mToolbar.setTitle("Adicionar Médico");
+        mToolbar.setTitle(R.string.adicionar_medico);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_forward_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
